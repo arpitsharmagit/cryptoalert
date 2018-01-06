@@ -1,0 +1,73 @@
+{
+  "project_info": {
+    "project_number": "765945813733",
+    "firebase_url": "https://alerto-75d81.firebaseio.com",
+    "project_id": "alerto-75d81",
+    "storage_bucket": "alerto-75d81.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:765945813733:android:c474f5ac3bb7ef4d",
+        "android_client_info": {
+          "package_name": "alerto.arpit.com"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "765945813733-0ekc4jqcfpv4o2tcmp5ms773jcf9v60p.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBIgaEhQw0U3mMqRlg-Oe_pzRMUQuCGyyk"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:765945813733:android:5796dbd40db4ac2a",
+        "android_client_info": {
+          "package_name": "com.arpit.alerto.cryptoalert"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "765945813733-0ekc4jqcfpv4o2tcmp5ms773jcf9v60p.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBIgaEhQw0U3mMqRlg-Oe_pzRMUQuCGyyk"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
