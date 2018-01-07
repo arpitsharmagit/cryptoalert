@@ -2,42 +2,42 @@ package com.arpit.alerto.cryptoalert;
 
 import android.util.Log;
 
+import java.io.IOException;
 import com.google.firebase.iid.FirebaseInstanceId;
 import com.google.firebase.iid.FirebaseInstanceIdService;
-
+import com.squareup.okhttp.MediaType;
+import com.squareup.okhttp.OkHttpClient;
+import com.squareup.okhttp.Request;
+import com.squareup.okhttp.RequestBody;
+import com.squareup.okhttp.Response;
 
 public class MyFirebaseInstanceIDService extends FirebaseInstanceIdService {
-
-    private static final String TAG = "MyFirebaseIIDService";
-
-    /**
-     * Called if InstanceID token is updated. This may occur if the security of
-     * the previous token had been compromised. Note that this is called when the InstanceID token
-     * is initially generated so this is where you would retrieve the token.
-     */
-    // [START refresh_token]
+    public static final MediaType JSON
+            = MediaType.parse("application/json; charset=utf-8");
+    private static final String TAG = "FirebaseIIDService";
+    private static final String ServerUrl = "http://localhost:8888/alerts";
     @Override
     public void onTokenRefresh() {
         // Get updated InstanceID token.
         String refreshedToken = FirebaseInstanceId.getInstance().getToken();
         Log.d(TAG, "Refreshed token: " + refreshedToken);
-
-        // If you want to send messages to this application instance or
-        // manage this apps subscriptions on the server side, send the
-        // Instance ID token to your app server.
+    try {
         sendRegistrationToServer(refreshedToken);
     }
-    // [END refresh_token]
-
-    /**
-     * Persist token to third-party servers.
-     *
-     * Modify this method to associate the user's FCM InstanceID token with any server-side account
-     * maintained by your application.
-     *
-     * @param token The new token.
-     */
-    private void sendRegistrationToServer(String token) {
+    catch(Exception e){
+        Log.d(TAG,"unable to send token to server");
+    }
+    }
+    private void sendRegistrationToServer(String token) throws IOException {
         // TODO: Implement this method to send token to your app server.
+        OkHttpClient client = new OkHttpClient();
+        String devideBody ="{'deviceId':"+token+"}";
+        RequestBody body = RequestBody.create(JSON, devideBody);
+        Request request = new Request.Builder()
+                .url(ServerUrl)
+                .post(body)
+                .build();
+        Response response = client.newCall(request).execute();
+        Log.d("Notification response",response.body().string());
     }
 }

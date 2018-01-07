@@ -24,34 +24,24 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
-            // Create channel to show notifications.
-            String channelId  = "fcm_default_channel";
-            String channelName = "alerts";
-            NotificationManager notificationManager =
-                    getSystemService(NotificationManager.class);
-            notificationManager.createNotificationChannel(new NotificationChannel(channelId,
-                    channelName, NotificationManager.IMPORTANCE_HIGH));
-
-            FirebaseMessaging.getInstance().subscribeToTopic("alerts");
-            Toast.makeText(MainActivity.this, "Subscribed to news topic", Toast.LENGTH_SHORT).show();
-
-            String token = FirebaseInstanceId.getInstance().getToken();
-            String msg = String.format("InstanceID Token: %s", token);
-            Toast.makeText(MainActivity.this, msg, Toast.LENGTH_SHORT).show();
-        }
+//        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+//            // Create channel to show notifications.
+//            String channelId  = "fcm_default_channel";
+//            String channelName = "alerts";
+//            NotificationManager notificationManager =
+//                    getSystemService(NotificationManager.class);
+//            notificationManager.createNotificationChannel(new NotificationChannel(channelId,
+//                    channelName, NotificationManager.IMPORTANCE_HIGH));
+//
+//            FirebaseMessaging.getInstance().subscribeToTopic("alerts");
+//
+//            String token = FirebaseInstanceId.getInstance().getToken();
+//            String msg = String.format("InstanceID Token: %s", token);
+//            Toast.makeText(MainActivity.this, msg, Toast.LENGTH_SHORT).show();
+//        }
 
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-
-        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
-        fab.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
-            }
-        });
     }
 
     @Override
